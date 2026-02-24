@@ -78,10 +78,10 @@ public class DriveMasters {
                         inventory.add(new SUV(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity)); //no parts [10]
                         break;
                     case 4:
-                        inventory.add(new Hybrid(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10]), Integer.parseInt(parts[11])); //power train and electric range
+                        inventory.add(new Hybrid(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10], Integer.parseInt(parts[11]))); //power train and electric range
                         break;
                     case 5:
-                        inventory.add(new PickupTruck(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10]), Integer.parseInt(parts[11])); //power train and electric range
+                        inventory.add(new PickupTruck(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10], Integer.parseInt(parts[11]))); //power train and electric range
                         break;
                 }
             } 
@@ -105,7 +105,7 @@ public class DriveMasters {
                         v.checkout();
                         System.out.println("The Vehicle \"" + v.getVehicleType() + " " + v.getSubType() + "\" has been checked out.");
                     } else {
-                        System.out.println("The vehicle is not availale.");
+                        System.out.println("The vehicle is not available.");
                     }
                     break;
                 }
@@ -119,7 +119,7 @@ public class DriveMasters {
         }
     }
     private static void findVehicleByType(){
-        System.out.print("Enter vehicle type to search for: (Sedan, SUV, Hatchback, Pickup Truck and Hybrid car");
+        System.out.print("Enter vehicle type to search for: (Sedan, SUV, Hatchback, Pickup Truck and Hybrid car)");
         String type = scanner.nextLine().trim();
         System.out.println("Matching vehicles: ");
         for (Vehicle v: inventory){
@@ -157,7 +157,7 @@ public class DriveMasters {
                 System.out.print("Enter HatchType (S for Standard Liftgate, T for Split Liftgate, P for Power Liftgate): ");
                 String hatch = scanner.nextLine().trim(); //ignores white space
                 for (Vehicle v : inventory){
-                    if (v instanceof Hatchback && ((Hatchback) v).getHatchType().equalsIgnoreCase(trunk)){
+                    if (v instanceof Hatchback && ((Hatchback) v).getHatchType().equalsIgnoreCase(hatch)){
                         System.out.print(v.toString());
                     }
                 }
@@ -175,7 +175,7 @@ public class DriveMasters {
                 System.out.print("Enter a PowerTrain (E for Series Hybrid , A for Parallel Hybrid, PHEV for Plug-in Hybrid): ");
                 String pt = scanner.nextLine().trim(); //ignores white space
                 for (Vehicle v : inventory){
-                    if (v instanceof Hybrid && ((Hybrid) v).getPowerTrain().equalsIgnoreCase(trunk)){
+                    if (v instanceof Hybrid && ((Hybrid) v).getPowerTrain().equalsIgnoreCase(pt)){
                         System.out.print(v.toString());
                     }
                 }
