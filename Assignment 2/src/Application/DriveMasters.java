@@ -77,11 +77,12 @@ public class DriveMasters {
                     case 3:
                         inventory.add(new SUV(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity)); //no parts [10]
                         break;
-                    case 4:
+                    case 4: //we leave case 4 blank since it is also a hybrid
+                    case 5:
                         inventory.add(new Hybrid(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10], Integer.parseInt(parts[11]))); //power train and electric range
                         break;
-                    case 5:
-                        inventory.add(new PickupTruck(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10], Integer.parseInt(parts[11]))); //power train and electric range
+                    case 6:
+                        inventory.add(new PickupTruck(carID, vehicleType, subType, speed, fuel, seats, year, drivetrain, price, quantity, parts[10], Integer.parseInt(parts[11]))); //cargobed
                         break;
                 }
             } 
